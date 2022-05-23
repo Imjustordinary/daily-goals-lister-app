@@ -24,6 +24,7 @@ const GoalInput=(props)=> {
           style={styles.inputText}
         />
         <View style={styles.buttonsContainer}>
+          
           <Button 
           color="#a065ec"
           title="Add this text"
@@ -41,18 +42,19 @@ export default GoalInput
 
 const styles = StyleSheet.create({
     inputText: {
-        padding: 8,
+        padding: 16,
         borderRadius:5,
         marginBottom:15,
         fontSize: 20,
-        backgroundColor:'white',
+        backgroundColor:'#e4d0ff',
+        color:"#120438"
       },
       containerBox: {
         flex:1,
         paddingTop: 50,
         paddingBottom:15,
         paddingHorizontal: 10,
-        backgroundColor: "#1e085a",
+        backgroundColor: "#311b6b",
       },
       image:{
         alignSelf:'center',

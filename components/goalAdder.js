@@ -26,6 +26,10 @@ const GoalAdder=()=> {
     setShow(false)
   }
 
+  const removeGoalHandler =(id)=>{
+    settextlistGoal(prevGoals => prevGoals.filter(each=>each.id !== id))
+  }
+
   const onPressHandler = () => {
     settextlistGoal((prev) => [
       ...prev,
@@ -43,7 +47,7 @@ const GoalAdder=()=> {
     <View style={styles.container}>
 
       <GoalInput show={show} offShowHandler={offShowHandler} onPressHandler={onPressHandler} onChangeTextHandler={onChangeTextHandler} text={text} />
-      <GoalList textlistGoal={textlistGoal} setShowHandler={setShowHandler} />
+      <GoalList removeGoalHandler={removeGoalHandler} textlistGoal={textlistGoal} setShowHandler={setShowHandler} />
      
     </View>
   );

@@ -5,6 +5,7 @@ import {
     Button,
     TextInput,
     FlatList,
+    Pressable
   } from "react-native";
   
   const GoalList=(props)=> {
@@ -26,7 +27,11 @@ import {
           data={props.textlistGoal}
           keyExtractor={(item, key) => item.id}
           renderItem={(itemData) => {
-            return <View style={styles.listText}><Text style={styles.eachOutput}>{itemData.item.text}</Text></View>;
+            return (
+              <Pressable onPress={()=>props.removeGoalHandler(itemData.item.id)}>
+            <View style={styles.listText}><Text style={styles.eachOutput}>{itemData.item.text}</Text></View>
+            </Pressable>
+            )
           }}
         />
        
@@ -54,10 +59,12 @@ import {
       },
       buttonStyle:{
         flex: 1,
-        marginTop:50
+        marginTop:50,
+        marginHorizontal:8
       },
       listContainer:{
-        flex:1
+        flex:1,
+        backgroundColor:'#1e085a'
       }
       
   })
