@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-tuto",
-    "slug": "react-native-tuto",
+    "name": "daily-goals-lister-app",
+    "slug": "daily-goals-lister-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
