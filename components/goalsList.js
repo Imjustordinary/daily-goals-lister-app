@@ -10,16 +10,27 @@ import {
   const GoalList=(props)=> {
     
     return (
-      
+      <View style={styles.listContainer}>
+        <View style={styles.buttonStyle}>
+        <Button
+          color="#a065ec"
+          
+          title="Add goal"
+          onPress={props.setShowHandler}
+        />
+        </View>
         <View style={styles.listText}>
+           
         <FlatList
+        style={styles.flatList}
           data={props.textlistGoal}
           keyExtractor={(item, key) => item.id}
           renderItem={(itemData) => {
-            return <Text style={styles.eachOutput}>{itemData.item.text}</Text>;
+            return <View style={styles.listText}><Text style={styles.eachOutput}>{itemData.item.text}</Text></View>;
           }}
         />
        
+      </View>
       </View>
         )}
   
@@ -27,19 +38,26 @@ import {
   
   const styles = StyleSheet.create({
     listText: {
-        flex:5,
+        flex:8,
         alignItems: "stretch",
-        paddingHorizontal:16
+        paddingHorizontal:12,
       },
       eachOutput: {
         textAlign: "center",
         color: "white",
         fontSize: 20,
-        marginVertical: 6,
+        marginVertical: 5,
         paddingHorizontal: 10,
         paddingVertical: 5,
         backgroundColor: "#2E0249",
         borderRadius: 7,
-        
       },
+      buttonStyle:{
+        flex: 1,
+        marginTop:50
+      },
+      listContainer:{
+        flex:1
+      }
+      
   })

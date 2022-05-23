@@ -16,12 +16,23 @@ const GoalAdder=()=> {
   const [outPut, setOutPut] = useState(false);
   const [textlistGoal, settextlistGoal] = useState([]);
   const [text, setText] = useState("");
+  const [show, setShow] = useState(false)
+
+  const setShowHandler =()=>{
+    setShow(true)
+  }
+
+  const offShowHandler =()=>{
+    setShow(false)
+  }
 
   const onPressHandler = () => {
     settextlistGoal((prev) => [
       ...prev,
       { text: text, id: Math.random().toString() },
     ]);
+    setText('')
+    offShowHandler()
   };
 
   const onChangeTextHandler = (enteredText) => {
@@ -31,8 +42,8 @@ const GoalAdder=()=> {
   return (
     <View style={styles.container}>
 
-      <GoalInput onPressHandler={onPressHandler} onChangeTextHandler={onChangeTextHandler} />
-      <GoalList textlistGoal={textlistGoal} />
+      <GoalInput show={show} offShowHandler={offShowHandler} onPressHandler={onPressHandler} onChangeTextHandler={onChangeTextHandler} text={text} />
+      <GoalList textlistGoal={textlistGoal} setShowHandler={setShowHandler} />
      
     </View>
   );
@@ -43,7 +54,6 @@ export default GoalAdder
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1e085a",
     alignItems: "stretch",
     justifyContent: "flex-start",
   },
